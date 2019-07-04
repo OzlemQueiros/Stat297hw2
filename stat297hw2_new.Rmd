@@ -1,8 +1,10 @@
 ---
-title: "stat297hw2_new"
+title: "Homework 2"
 output: html_document
 ---
 ```{r}
+#Problem 1: Fizz Buzz
+#Write a program that prints the numbers from 1 to 1000. But for multiples of three print “Fizz” instead of the number and for the multiples of five print “Buzz”. For numbers which are multiples of both three and five print “FizzBuzz”.
 
 for (i in 1:100) {
  if (i %% 3 == 0 & i %% 5 == 0) {print("FizzBuzz")}
@@ -12,3 +14,37 @@ for (i in 1:100) {
 }
 
 ```
+
+
+```{r}
+
+
+library(quantmod)
+today <- Sys.Date()
+three_year_ago <- seq(today, length = 2, by = "-3 year")[2]
+stocks_tickers <- c("AAPL", "MSFT")
+getSymbols(stocks_tickers, from = three_year_ago, to = today)
+
+nb_ticker <- length(stocks_tickers)
+var_stocks <- rep(NA, nb_ticker)
+names(var_stocks) <- stocks_tickers
+
+for (i in 1:nb_ticker){
+Xt = na.omit(ClCl(get(stocks_tickers[i])))
+stocks_tickers[i] = var(Xt)
+}
+stocks_tickers
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
